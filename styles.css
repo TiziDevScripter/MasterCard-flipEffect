@@ -1,0 +1,163 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #7F7FD5;
+    background: -webkit-linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);  
+    background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.cards{
+    width: 300px;
+    height: 200px;
+    border-radius: 15px;
+}
+.card{
+    position: absolute;
+    min-width: 300px;
+    height: 200px;
+    background: #55f;
+    padding: 1.5em;
+    border-radius: 15px;
+    background: linear-gradient(to right ,#02508B,  #008DD5);
+    backface-visibility: hidden;
+    transition: transform .3s ease-in-out;
+}
+.card p{
+    margin: 0;
+    color: #fff;
+}
+.card img{
+    width: 50px;
+    height: 30px;
+}
+
+
+/* FRONT */
+.card-front .icon{
+    position: absolute;
+    right: 7px;
+    bottom: 9px;
+}
+.card-front .cardd{
+    position: absolute;
+    font-weight: 900;
+}
+.card-front .chip{
+    position: absolute;
+    left: 25px;
+    top: 40%;
+}
+.card-front .back{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%) translateY(-20%);
+    width: 150px;
+    height: 150px;
+}
+.card-front .number{
+    position: absolute;
+    top: 115px;
+    left: 50px;
+    letter-spacing: 3px;
+    font-weight: 900;
+}
+.card-front .name{
+    position: absolute;
+    bottom: 4px;
+    left: 10px;
+}
+.card-front .valid-thru .first{
+    position: absolute;
+    font-size: .5em;
+    width: 2px;
+    line-height: 8px;
+    top: 140px;
+    left: 90px;
+}
+.card-front .valid-thru .second{
+    position: absolute;
+    top: 140px;
+    left: 110px;
+    font-size: .7em;
+}
+.card-front .number,
+.card-front .valid-thru .second{
+    text-shadow: -2px -2px 1px #02518C, 2px 2px 1px #000;
+}
+
+/* BACK */
+.card-back{
+    transform: rotateY(180deg);
+}
+.card-back .magnetic-band{
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 40px;
+    top: 16px;
+    left: 0;
+}
+.card-back .signature-space{
+    position: absolute;
+    background-color: #eee;
+    color: #000;
+    width: 60%;
+    height: 40px;
+    top: 70px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1em;
+    font-size: .9em;
+    font-weight: 900;
+}
+.card-back .signature-space p{
+    color: #000;
+}
+.card-back .number,
+.card-back .valid-thru{
+    position: absolute;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #02518C;
+    color: #aaa;
+    font-weight: 900;
+    opacity: 0;
+    transition: all .3s;
+}
+.card-back .number{
+    top: 115px;
+    left: 50px;
+    letter-spacing: 3px;
+}
+.card-back .valid-thru{
+    top: 140px;
+    left: 110px;
+    font-size: .7em;
+}
+.card-back .text{
+    position: absolute;
+    font-size: .5em;
+    width: 90%;
+    line-height: 10px;
+    bottom: 8px;
+}
+
+.cards:hover .card-front{
+    transform: rotateY(180deg) perspective(500px);
+}
+.cards:hover .card-back{
+    transform: rotateY(360deg) perspective(500px);
+}
+.cards:hover .card-back .number,
+.cards:hover .card-back .valid-thru{
+    transform: rotateY(180deg);
+    opacity: 1;
+}
